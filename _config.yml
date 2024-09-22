@@ -1,7 +1,8 @@
 title:              Naochan’s Blog
 description:        Naochan Official Blog
 author:             naochan83275
-url:                "https://naochan83275.github.io/blog"
+url:                "https://naochan83275.github.io"
+baseurl: "/blog"
 
 # Build settings
 markdown:           kramdown
