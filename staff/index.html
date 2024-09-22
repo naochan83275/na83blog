@@ -1,0 +1,12 @@
+---
+layout: page
+title: スタッフ一覧
+---
+
+{% for author in site.authors %}
+<div class="box">
+  <h1 class="title">{{ author.name }}</h2>
+  <p class="subtitle">{{ author.position }}</h3>
+  <p>{{ author.description }}</p>
+</div>
+{% endfor %}
