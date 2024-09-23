@@ -2,16 +2,6 @@
 permalink: /search/pages.json
 ---
 
-{%- assign output = "" -%}
-{%- assign page_paths = site.pages | map: "path" -%}
-{%- for path in page_paths -%}
-  {%- assign my_page = site.pages | where: "path", path | first -%}
-  {%- if my_page.title -%}
-    {%- assign output = output | append: ',' | append: path -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign output_page_paths = output | split: ',' -%}
 [
   {%- for path in output_page_paths -%}
     {%- assign my_page = site.pages | where: "path", path | first -%}
