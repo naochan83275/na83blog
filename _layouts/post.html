@@ -22,15 +22,28 @@ layout: default
 <div class="content box">
   {{ content }}
   <hr>
+  {% if page.authors %}
+  <h2>筆者</h2>
+  {% endif %}
+  {% for author in pege.authors %}
+    <div class="box">
+      <a href="{{ site.baseurl }}/authors/{{author.name}}.html">
+        <p class="title 4">{{ author.name }}</p>
+        <p class="subtitle">{{ author.position }}</p>
+        <p>{{ author.description }}</p>
+      </a>
+    </div>
+    <hr>
+  {% endfor %}
   {% if page.previous.url %}
   <a class="button is-info" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}">
     &larr; 前の投稿<br>
-    {{ page.previous.title }}
+    {{ page.previous.title | truncatewords: 8 }}...
   </a>
   {% endif %}
   {% if page.next.url %}
   <a class="button is-info is-right" style="text-align: right;" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}">
     次の投稿 &rarr;<br>
-    {{ page.next.title }}</a>
+    {{ page.next.title | truncatewords: 8 }}...</a>
   {% endif %}
 </div>
