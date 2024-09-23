@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div class="box" style="background-image: url('{{ page.background }}');height: 10em;">
+{% else %}
+<div class="box" style="height: 10em;">
+{% endif %}
+  <h1 class="title">{{ page.title }}</h1>
+  {% if page.subtitle %}
+  <h2 class="subtitle">{{ page.subtitle }}</h2>
+  {% endif %}
+  <p>
+    投稿者: <a href="">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a><br>
+    投稿日時: {{ page.date | date: '%Y/%m/%d' }}
+    タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag[0] }}</a>{% endfor %}
+  </p>
+</div>
+{% if page.content %}
+  <div class="content box">
+    {{content}}
+  </div>
+  <br>
+{% endif %}
+<div class="box">
+  <p class="title 4">過去の投稿</p>
+  {% for post in site.posts limit : 5 %}
+  <div class="box">
+    <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+      <p class="title 4">{{ post.title }}</p>
+      {% if post.subtitle %}
+      <p class="subtitle 6">{{ post.subtitle }}</p>
+      {% else %}
+      <p class="subtitle 6">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+      {% endif %}
+    </a>
+    <p>
+      投稿者: {% if post.author %}{{ post.author }}{% else %}{{ site.author }}{% endif %}<br>
+      投稿日時: {{ post.date | date: '%Y/%m/%d' }}
+      タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag[0] }}</a>{% endfor %}
+    </p>
+  </div>
+  {% endfor %}
+  <hr>
+  <a class="button is-info" href="{{"/posts" | relative_url }}">全ての投稿 &rarr;</a>
+</div>
