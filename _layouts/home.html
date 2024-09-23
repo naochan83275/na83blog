@@ -11,11 +11,6 @@ layout: default
   {% if page.subtitle %}
   <h2 class="subtitle">{{ page.subtitle }}</h2>
   {% endif %}
-  <p>
-    投稿者: <a href="">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a><br>
-    投稿日時: {{ page.date | date: '%Y/%m/%d' }}
-    タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag[0] }}</a>{% endfor %}
-  </p>
 </div>
 {% if page.content %}
   <div class="content box">
