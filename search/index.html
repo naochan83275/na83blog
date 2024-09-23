@@ -1,0 +1,18 @@
+---
+layout: page
+title: 記事検索
+---
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+
+
+<script type="module">
+  import text from "/include/import.js?path=/blog/search/pages.json";
+</script>
+<script>
+  const posts = text;
+  const fuse = new Fuse(posts, { keys: ['name'] });
+  const result = fuse.search(search);
+  alert(result);
+  const search_result = JSON.parse(result);
+</script>
