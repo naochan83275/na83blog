@@ -14,8 +14,8 @@ layout: default
   {% endif %}
   <p>
     投稿者: <a href="">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a><br>
-    投稿日時: {{ page.date | date: '%Y/%m/%d' }}
-    タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag[0] }}</a>{% endfor %}
+    投稿日時: {{ page.date | date: '%Y/%m/%d' }}<br>
+    タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag }}</a> {% endfor %}
   </p>
 </div>
 <br>
