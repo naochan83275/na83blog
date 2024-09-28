@@ -4,7 +4,7 @@ title: スタッフ一覧
 ---
 
 {% for author in site.authors %}
-<a href="{{ author.url }}">
+<a href="{{ author.url | relative_url }}">
   <div class="box">
     <h1 class="title">{{ author.name }}</h2>
     <p class="subtitle">{{ author.position }}</h3>
