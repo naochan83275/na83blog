@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div>
+{% if page.background %}
+<div class="box" style="background-image: url('{{ page.background }}');height: 10em;">
+{% else %}
+<div class="box">
+{% endif %}
+  <h1 class="title">{{ page.name }}</h1>
+  <p class="subtitle">{{ page.position }}</p>
+  <p>{{ page.description }}</p>
+</div>
+<div class="content box">
+  {{ content }}
+</div>
