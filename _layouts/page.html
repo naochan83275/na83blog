@@ -4,9 +4,9 @@ layout: default
 
 <div>
 {% if page.background %}
-<div class="box" style="background-image: url('{{ page.background }}');height: 10em;">
+<div class="box" style="background-image: url('{{ page.background }}');min-height: 10em;">
 {% else %}
-<div class="box" style="height: 10em;">
+<div class="box">
 {% endif %}
   <h1 class="title">{{ page.title }}</h1>
   {% if page.subtitle %}
