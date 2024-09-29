@@ -3,9 +3,9 @@ layout: default
 ---
 
 {% if page.background %}
-<div class="box" style="background-image: url('{{ page.background }}');height: 10em;">
+<div class="box" style="background-image: url('{{ page.background }}');min-height: 10em;">
 {% else %}
-<div class="box" style="height: 10em;">
+<div class="box">
 {% endif %}
   <h1 class="title">{{ site.title }}</h1>
   {% if page.subtitle %}
@@ -32,8 +32,8 @@ layout: default
     </a>
     <p>
       投稿者: {% if post.author %}{{ post.author }}{% else %}{{ site.author }}{% endif %}<br>
-      投稿日時: {{ post.date | date: '%Y/%m/%d' }}
-      タグ: {% for tag in page.tags %}<a class="tag is-info">{{ tag[0] }}</a>{% endfor %}
+      投稿日時: {{ post.date | date: '%Y/%m/%d' }}<br>
+      タグ: {% for tag in post.tags %}<a class="tag is-info">{{ tag }}</a> {% endfor %}
     </p>
   </div>
   {% endfor %}
