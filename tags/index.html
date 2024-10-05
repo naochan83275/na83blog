@@ -1,0 +1,33 @@
+---
+layout: page
+title: タグ別に見る
+---
+<div class=“box”>
+  <p class="title 4">タグ一覧</p>
+  {% for tag in site.tags %}
+    <a class=“button is-info” href="#{{ tag[0] }}">{{ tag[0] }}</a><br>
+  {% endfor %}
+</div>
+
+{% for tag in site.tags %}
+<div class="box">
+  <p class="title 4" id="{{ tag[0] }}">{{ tag[0] }}</p>
+  {% for post in tag[1] %}
+    <div class="box">
+      <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">
+        <p class="title 4">{{ post.title }}</p>
+        {% if post.subtitle %}
+        <p class="subtitle 6">{{ post.subtitle }}</p>
+        {% else %}
+        <p class="subtitle 6">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        {% endif %}
+      </a>
+      <p>
+        投稿者: {% if post.author %}{{ post.author }}{% else %}{{ site.author }}{% endif %}<br>
+        投稿日時: {{ post.date | date: '%Y/%m/%d' }}<br>
+        タグ: {% for tag in post.tags %}<a class="tag is-info">{{ tag }}</a> {% endfor %}
+      </p>
+    </div>
+  {% endfor %}
+{% endfor %}
+</div>
